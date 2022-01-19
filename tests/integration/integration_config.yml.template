@@ -1,7 +1,7 @@
 # Replace the values of variables with connection and access
 # details for your Personal Developer Instance
-sn_host: <your_host>
-sn_username: <your_user>
-sn_password: <your_password>
-sn_client_id: <your_client_id>
-sn_client_secret: <your_client_secret>
+sn_host: dev84867.service-now.com
+sn_username: admin
+sn_password: ufRZT2CgzG5m
+sn_client_id: b3e82c07c041011030e4d6d1d7a188ec
+sn_client_secret: eMiG:}5):y
