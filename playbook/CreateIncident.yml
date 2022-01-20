@@ -1,0 +1,13 @@
+---
+- name: Play to create ServiceNow Incident
+  hosts: localhost
+
+  tasks:
+  - name: Create Incident 
+    servicenow.itsm.incident:
+      caller: admin
+      state: new
+      short_description: Demo incident RHUG
+      impact: low
+      urgency: low
+    register: incident
