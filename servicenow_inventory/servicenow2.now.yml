@@ -5,6 +5,8 @@ columns:
   - name
   - classification
   - cpu_type
+  - ip_address
+  - vm_inst_id  
  
 group_by:
   os:
