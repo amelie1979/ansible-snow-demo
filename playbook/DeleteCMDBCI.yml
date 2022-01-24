@@ -1,0 +1,14 @@
+---
+- name: Demonstrate CMDB item update and deletion
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Update the VM state
+      servicenow.itsm.configuration_item:
+        sys_id: b0ccabf1c0a80009001f14fd151d8df0
+        install_status: in_maintenance
+
+    - name: Remove item from CMDB
+      servicenow.itsm.configuration_item:
+        sys_id: b0ccabf1c0a80009001f14fd151d8df0
+        state: absent

@@ -1,0 +1,19 @@
+---
+- name: Demonstrate CMDB management
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Simulate VM creation for RHUG Amelie-VM-01
+      ansible.builtin.set_fact:
+        instance:
+          name: Amelie-VM-01
+          id: vm1234567890
+          public_ip_address: 10.1.1.1
+
+    - name: Register the newly-created VM instance
+      servicenow.itsm.configuration_item:
+        name: "{{ instance.name }}"
+        sys_class_name: cmdb_ci_vm_instance
+        ip_address: "{{ instance.public_ip_address }}"
+        other:
+          vm_inst_id: "{{ instance.id }}"
