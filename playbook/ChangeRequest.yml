@@ -1,0 +1,33 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Mark change request as in progress
+      servicenow.itsm.change_request:
+        number: "{{ change_number }}"
+        state: implement
+      register: change
+ 
+    - name: Fetch configuration item we will update
+      servicenow.itsm.configuration_item_info:
+        sys_id: "{{ change.record.cmdb_ci }}"
+      register: citem
+ 
+    - name: Create an in-memory inventory with the item
+      ansible.builtin.add_host:
+        name: host_to_update
+        ansible_host: "{{ citem.record.ip_address }}"
+ 
+- hosts: host_to_update
+  tasks:
+    - name: Simulate some work
+      ansible.builtin.debug:
+        msg: Doing real work here
+ 
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Mark change request as done
+      servicenow.itsm.change_request:
+        number: "{{ change_number }}"
+        state: closed
