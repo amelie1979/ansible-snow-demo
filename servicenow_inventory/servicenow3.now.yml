@@ -1,0 +1,11 @@
+---
+plugin: servicenow.itsm.now
+table: cmdb_ci_ec2_instance
+columns:
+  - ip_address
+  - name
+  - vm_inst_id
+query:
+  - operational_status: = 1
+    fqdn: ISNOTEMPTY
+    manufacturer: STARTSWITH Lenovo
