@@ -4,5 +4,5 @@
   tasks:
     - name: Update incident
       servicenow.itsm.incident:
-        number: INC0010002
+        number: "{{ incident_number }}"
         state: in_progress
