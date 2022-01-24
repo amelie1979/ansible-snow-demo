@@ -1,0 +1,7 @@
+# Replace the values of variables with connection and access
+# details for your Personal Developer Instance
+sn_host: 
+sn_username: admin
+sn_password: 
+sn_client_id: 
+sn_client_secret: 
