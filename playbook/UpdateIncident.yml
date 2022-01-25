@@ -2,7 +2,7 @@
 - hosts: localhost
   gather_facts: false
   tasks:
-    - name: Update incident
+    - name: Update incident Status
       servicenow.itsm.incident:
         number: "{{ incident_number }}"
-        state: in_progress
+        state: "{{ status }}"

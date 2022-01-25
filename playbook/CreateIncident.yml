@@ -9,6 +9,7 @@
       state: new
       short_description: "{{ short_description }}"
       description: "{{ detailed_description }}"
+      category: "{{ category }}"
       impact: "{{ impact }}"
       urgency: "{{ urgency }}"
     register: incident
