@@ -8,7 +8,7 @@
       caller: admin
       state: new
       short_description: "{{ short_description }}"
-      description: "{{ detailed_description }} ; Ansible Job {{ lookup('env', 'JOB_ID') }} Failed"
+      description: "{{ detailed_description }} "
       impact: "{{ impact }}"
       urgency: "{{ urgency }}"
       other:
