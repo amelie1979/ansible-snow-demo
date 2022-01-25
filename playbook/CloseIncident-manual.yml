@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Close incident 
+      servicenow.itsm.incident:
+        number: INC0010032
+        state: resolved
+        close_code: Solved Remotely (Permanently)
+        close_notes: resolved by ansible

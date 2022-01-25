@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Resolved Incident 
+      servicenow.itsm.incident:
+        number: "{{ incident_number }}"
+        state: resolved
+        close_code: Solved Remotely (Permanently)
+        close_notes: Resolved by ansible automation
