@@ -9,5 +9,5 @@
       state: new
       short_description: "{{ short_description }}"
       impact: "{{ impact }}"
-      urgency: low
+      urgency: "{{ urgency }}"
     register: incident
