@@ -1,0 +1,15 @@
+---
+- name: "Enable SELinux"
+  gather_facts: no
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Enable SELinux
+    ansible.posix.selinux:
+      policy: targeted
+      state: enforcing
+    register: selinux_status
+
+  - debug:
+      var: selinux_status

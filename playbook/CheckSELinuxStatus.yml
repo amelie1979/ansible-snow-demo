@@ -1,0 +1,17 @@
+---
+- name: "Check SELinux"
+  gather_facts: no
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Enable SELinux
+    ansible.posix.selinux:
+      policy: targeted
+      state: enforcing
+    check_mode: yes
+    register: selinux_status
+    failed_when: selinux_status.changed
+
+  - debug:
+      var: selinux_status
