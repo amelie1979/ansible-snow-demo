@@ -7,7 +7,7 @@
       servicenow.itsm.change_request:
         number: "{{ change_number }}"
         state: closed
-        close_code: Sucessful
+        close_code: successful
         close_notes: Resolved by Ansible Automation Platform
       register: change
  
