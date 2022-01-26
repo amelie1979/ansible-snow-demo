@@ -1,0 +1,22 @@
+---
+- name: "Decom Linux Server"
+  gather_facts: no
+  hosts: localhost
+  become: yes
+  tasks:
+
+  - name: Stop server
+    debug:
+      msg: "{{ inventory_hostname }} is stop"
+
+  - name: Take full Backup
+    debug:
+      msg: "{{ inventory_hostname }} has been backuped"    
+
+  - name: Unregister DNS Entry
+    debug:
+      msg: "{{ inventory_hostname }} dns entry has been released from the IPAM" 
+
+  - name: Shutdown Switch Port and remove description
+    debug:
+      msg: "{{ inventory_hostname }} port in switch xwz has been shutdowned and description removed" 
