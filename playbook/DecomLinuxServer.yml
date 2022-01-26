@@ -1,7 +1,7 @@
 ---
 - name: "Decom Linux Server"
   gather_facts: no
-  hosts: localhost
+  hosts: all
   become: yes
   tasks:
 
