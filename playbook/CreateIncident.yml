@@ -8,11 +8,11 @@
       caller: admin
       state: new
       short_description: "{{ short_description }}"
-      description: "{{ detailed_description }} ; Ansible Job {{ lookup('env', 'JOB_ID') }} Failed"
+      description: "{{ detailed_description }} ; Ansible Job {{ lookup('env', 'JOB_ID') }} Failed ; {{ ansible_hostname }} ; {{ inventory_hostname }} "
       impact: "{{ impact }}"
       urgency: "{{ urgency }}"
       other:
         category: "{{ category }}"
         subcategory: "{{ sub_category }}"
-        cmdb_ci: "{{ inventory_hostname }}" 
+        cmdb_ci: "{{ ansible_hostname }}" 
     register: incident

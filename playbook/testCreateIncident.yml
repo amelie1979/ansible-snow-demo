@@ -1,7 +1,7 @@
 ---
 - name: Play to create ServiceNow Incident
   hosts: localhost
-
+  gather_facts: false
   tasks:
   - name: Create Incident 
     servicenow.itsm.incident:
@@ -13,5 +13,5 @@
       other:
         category: Software
         subcategory: Operating System
-        cmdb_ci: Car-1      
+        cmdb_ci: Car-1     
     register: incident
