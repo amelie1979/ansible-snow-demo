@@ -6,7 +6,7 @@
     - name: Assign to Group
       servicenow.itsm.change_request:
         number: "{{ change_number }}"
-        requested_by: some.user
+        requested_by: ansible.user
       register: change
 
     - name: Mark change request as in implementing
