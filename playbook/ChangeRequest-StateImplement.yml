@@ -7,7 +7,6 @@
       servicenow.itsm.change_request:
         number: "{{ change_number }}"
         assignment_group: Change Management
-        assignment_to: ansible.user
         requested_by: ansible.user
       register: change
 
