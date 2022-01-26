@@ -3,6 +3,13 @@
   gather_facts: false
   tasks:
 
+    - name: Assign to Group
+      servicenow.itsm.change_request:
+        number: "{{ change_number }}"
+        assignment_group: Change Management
+        requested_by: ansible.user
+      register: change
+      
     - name: Mark change request scheduled
       servicenow.itsm.change_request:
         number: "{{ change_number }}"
