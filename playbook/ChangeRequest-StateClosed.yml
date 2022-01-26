@@ -3,9 +3,11 @@
   gather_facts: false
   tasks:
 
-    - name: Mark change request cloded
+    - name: Mark change request closed
       servicenow.itsm.change_request:
         number: "{{ change_number }}"
         state: closed
+        close_code: Sucessful
+        close_notes: Resolved by Ansible Automation Platform
       register: change
  
