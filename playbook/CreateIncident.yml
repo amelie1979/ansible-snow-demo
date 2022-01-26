@@ -1,7 +1,7 @@
 ---
 - name: Play to create ServiceNow Incident
   hosts: localhost
-
+  gather_facts: true
   tasks:
   - name: Create Incident 
     servicenow.itsm.incident:
