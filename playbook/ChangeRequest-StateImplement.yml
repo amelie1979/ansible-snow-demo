@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Mark change request as in progress
+      servicenow.itsm.change_request:
+        number: "{{ change_number }}"
+        state: implement
+      register: change
+ 
