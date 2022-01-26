@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+
+    - name: Mark change request reviwed
+      servicenow.itsm.change_request:
+        number: "{{ change_number }}"
+        state: review
+      register: change
+ 
