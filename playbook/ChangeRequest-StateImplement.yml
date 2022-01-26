@@ -2,7 +2,14 @@
 - hosts: localhost
   gather_facts: false
   tasks:
-    - name: Mark change request as in progress
+    
+    - name: Assign to Group
+      servicenow.itsm.change_request:
+        number: "{{ change_number }}"
+        requested_by: some.user
+      register: change
+
+    - name: Mark change request as in implementing
       servicenow.itsm.change_request:
         number: "{{ change_number }}"
         state: implement
