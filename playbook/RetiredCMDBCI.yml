@@ -1,0 +1,10 @@
+---
+- name: Retired a CI from CMDB
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Update Server state
+      servicenow.itsm.configuration_item:
+        sys_id: 54cb59e10755011084e5fe4f7c1ed0b4
+        install_status: retired
+        operational_status: retired
