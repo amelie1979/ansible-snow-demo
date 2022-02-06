@@ -1,0 +1,26 @@
+---
+- name: Demonstrate CMDB CI Creation
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Simulate Linux Server for RHUG RHEL8-4
+      ansible.builtin.set_fact:
+        instance:
+          name: RHEL8-4
+          public_ip_address: 51.222.41.43
+          status : pending_install
+          category : To be scan
+          environment : Production
+          operational_status: non_operational
+          os : Linux Red Hat
+
+    - name: Register the newly-created Server instance
+      servicenow.itsm.configuration_item:
+        name: "{{ instance.name }}"
+        sys_class_name: cmdb_ci_linux_server
+        category : "{{ instance.category }}"
+        install_status: "{{ instance.status }}"
+        ip_address: "{{ instance.public_ip_address }}"
+        operational_status: "{{ instance.operational_status }}"
+        other:
+          os: "{{ instance.os }}"
