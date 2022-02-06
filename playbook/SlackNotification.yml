@@ -1,14 +1,13 @@
 ---
 - name: "Send slack message"
   gather_facts: no
-  hosts: all
+  hosts: localhost
   become: yes
   tasks:
-
   - name: "Send slack message"
     community.general.slack:
       token: T01DW2WQ2NM/B01LEJL8P60/ZlCoRFrR6oL6Mk2njcDVyFMX
-      msg: "{{ message }}, on {{ inventory_hostname }}"
+      msg: "tset, on {{ inventory_hostname,  inventory_hostname }}"
     become: no
     delegate_to: localhost 
     check_mode: no
