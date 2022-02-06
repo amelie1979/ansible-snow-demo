@@ -1,7 +1,6 @@
 ---
 - name: Play to create ServiceNow Incident
-  hosts: localhost
-  gather_facts: true
+  hosts: all
   tasks:
   - name: Create Incident 
     servicenow.itsm.incident:
@@ -16,3 +15,5 @@
         subcategory: "{{ sub_category }}"
         cmdb_ci: "{{ ansible_hostname }}" 
     register: incident
+  - debug: 
+      var: incident
