@@ -7,12 +7,14 @@
       ansible.builtin.set_fact:
         instance:
           name: RHEL8-4
+          fqdn: sno2.rhcasalab.com
           public_ip_address: 51.222.41.43
           status : pending_install
           category : To be scan
           environment : Production
           operational_status: non_operational
           os : Linux Red Hat
+
 
     - name: Register the newly-created Server instance
       servicenow.itsm.configuration_item:
@@ -24,3 +26,6 @@
         operational_status: "{{ instance.operational_status }}"
         other:
           os: "{{ instance.os }}"
+          fqdn: "{{ instance.fqdn }}"
+          dns_domain: "{{ instance.fqdn }}"
+          host_name: "{{ instance.fqdn }}"

@@ -13,7 +13,7 @@
       other:
         category: Software
         subcategory: Operating System
-        cmdb_ci: Car-1     
+        cmdb_ci: RHEL8-4    
     register: incident_number
   - debug: 
       var: incident_number
