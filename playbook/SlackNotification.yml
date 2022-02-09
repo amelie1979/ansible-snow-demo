@@ -7,7 +7,7 @@
   - name: "Send slack message"
     community.general.slack:
       token: T01DW2WQ2NM/B01LEJL8P60/ZlCoRFrR6oL6Mk2njcDVyFMX
-      msg: "Manual, on {{ inventory_hostname,  c_hostname }}"
+      msg: "Manual Notification, on {{ c_hostname }}"
     become: no
     delegate_to: localhost 
     check_mode: no
