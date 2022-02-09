@@ -11,9 +11,5 @@
       state: enforcing
     register: selinux_status
 
-  - set_stats:
-      data:
-        c_hostname: "{{ inventory_hostname }}"
-
   - debug:
       var: selinux_status
