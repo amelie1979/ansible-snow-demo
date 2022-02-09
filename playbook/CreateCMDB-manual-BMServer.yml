@@ -1,0 +1,18 @@
+---
+- name: Demonstrate CMDB management
+  hosts: localhost
+  gather_facts: false
+  tasks:  
+  - name: Create a configuration item
+    servicenow.itsm.configuration_item:
+      name: RHEL8-1
+      short_description: HPE ProLiant Server G7
+      serial_number: ECE-124-E10834-NO
+      asset_tag: P1010677
+      sys_class_name: cmdb_ci_server
+      assigned_to: ansible.user
+      environment: production
+      category: Hardware
+      other:
+        model_number: BL465C G7
+    register: server
