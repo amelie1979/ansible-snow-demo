@@ -13,10 +13,5 @@
     register: selinux_status
     failed_when: selinux_status.changed
 
-  - name: Set hostname of Notification
-    ansible.builtin.set_stats:
-      data:
-        c_hostname: "{{ inventory_hostname }}"
-
   - debug:
       var: selinux_status
