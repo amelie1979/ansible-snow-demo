@@ -5,6 +5,6 @@
   tasks:
     - name: Update Server state
       servicenow.itsm.configuration_item:
-        sys_id: b7a2a5451b61011082f18515ec4bcb56
+        sys_id: e1dc69d11b21011082f18515ec4bcb2c
         install_status: retired
         operational_status: retired
