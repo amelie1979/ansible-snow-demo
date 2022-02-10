@@ -4,36 +4,23 @@
   tasks:
     - name: Mark change request as in progress
       servicenow.itsm.change_request:
-        number: "{{ change_number }}"
+##        number: "{{ change_number }}"
+        number: CHG0030004
         state: implement
       register: change
 
-    - debug: 
-        var: change  
- 
-    - name: Fetch configuration item we will update
+    - name: Retrieve all configuration items
       servicenow.itsm.configuration_item_info:
-        sys_id: "{{ change.record.cmdb_ci }}"
-      register: citem
-    
-    - debug: 
-        var: citem 
-
-    - name: Create an in-memory inventory with the item
-      ansible.builtin.add_host:
-        name: host_to_update
-        ansible_host: "{{ citem.record.ip_address }}"
- 
-- hosts: host_to_update
-  tasks:
-    - name: Simulate some work
-      ansible.builtin.debug:
-        msg: Doing real work here
- 
+        sys_id: 5421928e1ba1011082f18515ec4bcbab
+      register: result
+    - debug:
+        var: result
 - hosts: localhost
   gather_facts: false
   tasks:
     - name: Mark change request as done
       servicenow.itsm.change_request:
-        number: "{{ change_number }}"
+        number: CHG0030004
         state: closed
+        close_code: successful
+        close_notes: Resolved by Ansible Automation Platform        
