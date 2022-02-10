@@ -8,4 +8,6 @@
         number: "{{ change_number }}"
         state: review
       register: change
- 
+
+    - debug:
+       var: change

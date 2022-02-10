@@ -10,4 +10,6 @@
         close_code: successful
         close_notes: Resolved by Ansible Automation Platform
       register: change
- 
+
+    - debug:
+       var: change 
