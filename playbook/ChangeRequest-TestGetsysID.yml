@@ -7,12 +7,18 @@
         number: "{{ change_number }}"
         state: implement
       register: change
+
+    - debug: 
+        var: change  
  
     - name: Fetch configuration item we will update
       servicenow.itsm.configuration_item_info:
         sys_id: "{{ change.record.cmdb_ci }}"
       register: citem
- 
+    
+    - debug: 
+        var: citem 
+
     - name: Create an in-memory inventory with the item
       ansible.builtin.add_host:
         name: host_to_update
