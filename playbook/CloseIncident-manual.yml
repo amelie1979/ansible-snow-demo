@@ -4,7 +4,7 @@
   tasks:
     - name: Close incident 
       servicenow.itsm.incident:
-        number: INC0010060
+        number: INC0010075
         state: resolved
         close_code: Solved Remotely (Permanently)
         close_notes: Resolved by Ansible Automation Platform

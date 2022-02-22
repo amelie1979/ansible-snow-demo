@@ -10,6 +10,15 @@
       policy: targeted
       state: enforcing
     register: selinux_status
+    stat: path=/var/run/reboot-required get_md5=no
+
+  - name: Reboot Server
+    reboot:
+      msg: "Reboot initiated by Ansible for SELinux Enabling"
+      connect_timeout: 15
+      reboot_timeout: 300      
+      test_command: uptime
+    when: reboot_required_file.stat.exists
 
   - debug:
       var: selinux_status

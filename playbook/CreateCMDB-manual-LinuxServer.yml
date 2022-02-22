@@ -3,12 +3,12 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Simulate Linux Server for RHUG RHEL8-4
+    - name: Simulate Linux Server for RHUG RHEL8-1
       ansible.builtin.set_fact:
         instance:
-          name: RHEL8-4
-          fqdn: sno2.rhcasalab.com
-          public_ip_address: 51.222.41.43
+          name: RHEL8-1
+          fqdn: sno1.rhcasalab.com
+          public_ip_address: 51.222.41.22
           status : pending_install
           category : To be scan
           environment : Production
