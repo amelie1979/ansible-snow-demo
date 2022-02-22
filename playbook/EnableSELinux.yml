@@ -10,6 +10,9 @@
       policy: targeted
       state: enforcing
     register: selinux_status
+
+  - debug:
+      var: selinux_status
   
   - name: Reboot Server
     reboot:
@@ -18,5 +21,4 @@
       reboot_timeout: 300      
       test_command: uptime
 
-  - debug:
-      var: selinux_status
+
