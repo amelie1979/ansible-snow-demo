@@ -6,16 +6,15 @@
     - name: Create CI for light 1
       ansible.builtin.set_fact:
         instance:
-          name: 1001-lumiere-2
-          fqdn: 1001-lumiere-2.rhcasalab.com
+          name: 1001-lumiere-3
+          fqdn: 1001-lumiere-3.rhcasalab.com
           public_ip_address: 0.0.0.0
           status : pending_install
-          category : To be scan
+          category : lights
           environment : production
           operational_status: operational
           os : Linux Red Hat
           attributes: 233
-
 
     - name: Register the newly-created Server instance
       servicenow.itsm.configuration_item:

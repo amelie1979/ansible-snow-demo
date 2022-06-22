@@ -1,8 +1,8 @@
 ---
 plugin: servicenow.itsm.now
-fields: [ip_address,fqdn,host_name,sys_class_name,name,os,install_status,attributes]
+fields: [ip_address,fqdn,host_name,sys_class_name,name,os,install_status,attributes,category]
 query:
-  - os: = Linux Red Hat
+  - category: = lights
 keyed_groups:
-  - key: os
-    prefix: os
+  - key: category
+    prefix: category
