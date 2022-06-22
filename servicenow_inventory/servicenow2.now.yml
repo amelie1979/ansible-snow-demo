@@ -1,6 +1,6 @@
 ---
 plugin: servicenow.itsm.now
-fields: [ip_address,fqdn,host_name,sys_class_name,name,os,attributes]
+fields: [ip_address,fqdn,host_name,sys_class_name,name,os,install_status,attributes]
 query:
   - os: = Linux Red Hat
 keyed_groups:
