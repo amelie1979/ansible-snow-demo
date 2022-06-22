@@ -1,7 +1,12 @@
 ---
 plugin: servicenow.itsm.now
+fields:
+  - name
+  - ip_address
+  - sys_tags
+  - attributes
 query:
-  - os: = Windows XP
+  - os: = Linux Red Hat
 keyed_groups:
   - key: os
     prefix: os
