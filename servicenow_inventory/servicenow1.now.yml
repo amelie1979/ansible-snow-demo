@@ -16,4 +16,6 @@ query:
   - os: = Linux Red Hat
 keyed_groups:
   - key: os
-    prefix: os
+    prefix: os    
+  - key: sn_install_status | lower
+    prefix: 'status'    
