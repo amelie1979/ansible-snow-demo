@@ -1,6 +1,5 @@
 ---
 plugin: servicenow.itsm.now
-table: cmdb_ci_server
 fields: [ip_address,fqdn,host_name,sys_class_name,name,os,attributes]
 query:
   - os: = Linux Red Hat
