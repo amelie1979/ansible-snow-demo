@@ -5,6 +5,12 @@ fields:
   - ip_address
   - sys_tags
   - attributes
+  - fqdn
+  - host_name
+  - sys_class_name
+  - os
+  - install_status
+
 query:
   - os: = Linux Red Hat
 keyed_groups:
