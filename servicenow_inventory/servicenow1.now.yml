@@ -1,5 +1,6 @@
 ---
 plugin: servicenow.itsm.now
+use_extra_vars: yes
 fields:
   - name
   - ip_address
