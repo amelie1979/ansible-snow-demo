@@ -7,12 +7,13 @@
       ansible.builtin.set_fact:
         instance:
           name: RHEL8-1
-          fqdn: sno1.rhcasalab.com
-          public_ip_address: 51.222.41.22
+          fqdn: sno2.rhcasalab.com
+          public_ip_address: 51.222.41.43
           status : pending_install
           category : To be scan
           environment : Production
           operational_status: non_operational
+          manufacturer: Dell Inc.
           os : Linux Red Hat
 
 
@@ -29,3 +30,4 @@
           fqdn: "{{ instance.fqdn }}"
           dns_domain: "{{ instance.fqdn }}"
           host_name: "{{ instance.fqdn }}"
+          manufacturer: "{{ instance.manufacturer }}"

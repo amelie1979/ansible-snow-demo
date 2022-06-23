@@ -22,6 +22,7 @@
       servicenow.itsm.configuration_item:
         name: "{{ instance.name }}"
         sys_class_name: cmdb_ci_linux_server
+        environment: "{{ instance.environment }}"
         category : "{{ instance.category }}"
         install_status: "{{ instance.status }}"
         ip_address: "{{ instance.public_ip_address }}"
