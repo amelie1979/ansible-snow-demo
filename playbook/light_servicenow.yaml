@@ -1,0 +1,11 @@
+---
+- name: "Light Control"
+  gather_facts: no
+  hosts: all
+  tasks: 
+
+  - name: "Control light status"
+    when: device_type == "lumiere" | default("")
+    ansible.builtin.uri:
+      url: "{{ hubitat_url }}/{{ attributes }}/{{ hubitat_action }}?access_token={{ hubitat_access_token }}"
+    delegate_to: localhost
