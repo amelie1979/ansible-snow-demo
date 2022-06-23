@@ -14,9 +14,9 @@
           environment : production
           operational_status: operational
           os : Linux Red Hat
-          location: 100 South Charles Street, Baltimore,MD
+          location: Maison_Martin
           attributes: 265
-          assigned_to: Abel.Tuter
+          assigned_to: Ansible.User
 
     - name: Register the newly-created Server instance
       servicenow.itsm.configuration_item:
