@@ -3,17 +3,18 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Create CI for light 1
+    - name: Create CI for lights
       ansible.builtin.set_fact:
         instance:
-          name: 1001-lumiere-3
-          fqdn: 1001-lumiere-3.rhcasalab.com
+          name: lumiere-3
+          fqdn: lumiere-3.rhcasalab.com
           public_ip_address: 0.0.0.0
           status : pending_install
           category : lights
           environment : production
           operational_status: operational
           os : Linux Red Hat
+          location: 100 South Charles Street, Baltimore,MD
           attributes: 233
 
     - name: Register the newly-created Server instance
@@ -29,4 +30,5 @@
           fqdn: "{{ instance.fqdn }}"
           dns_domain: "{{ instance.fqdn }}"
           host_name: "{{ instance.fqdn }}"
+          location: "{{ instance.location }}"
           attributes: "{{ instance.attributes }}"

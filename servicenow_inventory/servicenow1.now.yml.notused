@@ -1,0 +1,21 @@
+---
+plugin: servicenow.itsm.now
+use_extra_vars: yes
+fields:
+  - name
+  - ip_address
+  - sys_tags
+  - attributes
+  - fqdn
+  - host_name
+  - sys_class_name
+  - os
+  - install_status
+
+query:
+  - os: = Linux Red Hat
+keyed_groups:
+  - key: os
+    prefix: os    
+  - key: sn_install_status | lower
+    prefix: 'status'    

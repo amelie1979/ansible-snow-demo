@@ -1,8 +1,10 @@
 ---
 plugin: servicenow.itsm.now
-fields: [ip_address,fqdn,host_name,sys_class_name,name,os,install_status,attributes,category]
+fields: [ip_address,fqdn,host_name,sys_class_name,name,os,install_status,attributes,category,location]
 query:
   - category: = lights
 keyed_groups:
   - key: category
     prefix: category
+  - key: location
+    prefix: location    
