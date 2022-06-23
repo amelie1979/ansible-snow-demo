@@ -1,8 +1,18 @@
 ---
 plugin: servicenow.itsm.now
+query:
+  - category: = lights
 columns:
   - name
+  - ip_address
   - classification
   - attributes
+  - install_status
+  - location
 compose:
-    ansible_host: fqdn
+    ansible_host: name
+keyed_groups:
+  - key: category
+    prefix: category
+  - key: location
+    prefix: location    

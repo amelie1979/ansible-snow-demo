@@ -6,8 +6,8 @@
     - name: Create CI for lights
       ansible.builtin.set_fact:
         instance:
-          name: lumiere-3
-          fqdn: lumiere-3.rhcasalab.com
+          name: lumiere-1
+          fqdn: lumiere-1.rhcasalab.com
           public_ip_address: 0.0.0.0
           status : pending_install
           category : lights
@@ -16,6 +16,7 @@
           os : Linux Red Hat
           location: 100 South Charles Street, Baltimore,MD
           attributes: 233
+          assigned_to: Abel.Tuter
 
     - name: Register the newly-created Server instance
       servicenow.itsm.configuration_item:
@@ -25,6 +26,7 @@
         install_status: "{{ instance.status }}"
         ip_address: "{{ instance.public_ip_address }}"
         operational_status: "{{ instance.operational_status }}"
+        assigned_to: "{{ instance.assigned_to }}"
         other:
           os: "{{ instance.os }}"
           fqdn: "{{ instance.fqdn }}"
