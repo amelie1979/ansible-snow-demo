@@ -1,0 +1,36 @@
+---
+- name: Demonstrate CMDB CI Creation
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create CI for lights
+      ansible.builtin.set_fact:
+        instance:
+          name: lumiere-2
+          fqdn: lumiere-2.rhcasalab.com
+          public_ip_address: 0.0.0.0
+          status : pending_install
+          category : lights
+          environment : production
+          operational_status: operational
+          os : Linux Red Hat
+          location: 100 South Charles Street, Baltimore,MD
+          attributes: 265
+          assigned_to: Abel.Tuter
+
+    - name: Register the newly-created Server instance
+      servicenow.itsm.configuration_item:
+        name: "{{ instance.name }}"
+        sys_class_name: cmdb_ci_linux_server
+        category : "{{ instance.category }}"
+        install_status: "{{ instance.status }}"
+        ip_address: "{{ instance.public_ip_address }}"
+        operational_status: "{{ instance.operational_status }}"
+        assigned_to: "{{ instance.assigned_to }}"
+        other:
+          os: "{{ instance.os }}"
+          fqdn: "{{ instance.fqdn }}"
+          dns_domain: "{{ instance.fqdn }}"
+          host_name: "{{ instance.fqdn }}"
+          location: "{{ instance.location }}"
+          attributes: "{{ instance.attributes }}"
