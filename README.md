@@ -59,6 +59,31 @@ You can either call modules by their Fully Qualified Collection Namespace (FQCN)
 
 TODO: INCIDENT_INFO module example.
 
+## Config AAP Credential Type
+Input Configuration
+
+fields:
+  - id: SN_HOST
+    type: string
+    label: Snow Instance
+  - id: SN_USERNAME
+    type: string
+    label: Username
+  - id: SN_PASSWORD
+    type: string
+    label: Password
+    secret: true
+required:
+  - SN_HOST
+  - SN_USERNAME
+  - SN_PASSWORD
+
+Injector Configuration
+env:
+  SN_HOST: '{{ SN_HOST }}'
+  SN_PASSWORD: '{{ SN_PASSWORD }}'
+  SN_USERNAME: '{{ SN_USERNAME }}'
+
 
 ### See Also:
 
@@ -70,19 +95,6 @@ TODO: INCIDENT_INFO module example.
 
 We welcome community contributions to this collection. If you find problems, please open an issue or create a PR against the [ServiceNow ITSM collection repository](https://github.com/ansible-collections/servicenow.itsm). See [Contributing to Ansible-maintained collections](https://docs.ansible.com/ansible/devel/community/contributing_maintained_collections.html#contributing-maintained-collections) for more details.
 
-You can also join us on:
-
-- IRC - the ``#ansible-community`` [irc.libera.chat](https://libera.chat/) channel
-
-See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/community/index.html) for details on contributing to Ansible.
-
-
-## Release notes
-<!--Add a link to a changelog.rst file or an external docsite to cover this information. -->
-
-## Roadmap
-
-<!-- Optional. Include the roadmap for this collection, and the proposed release/versioning strategy so users can anticipate the upgrade/update cycle. -->
 
 ## More information
 
@@ -96,3 +108,4 @@ See the [Ansible Community Guide](https://docs.ansible.com/ansible/latest/commun
 GNU General Public License v3.0 or later.
 
 See [COPYING](https://www.gnu.org/licenses/gpl-3.0.txt) to see the full text.
+
