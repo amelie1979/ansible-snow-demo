@@ -1,0 +1,3 @@
+all:
+  hosts:
+    rhel8.localdomain
