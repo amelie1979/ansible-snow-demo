@@ -79,6 +79,7 @@ required:
   - SN_PASSWORD
 
 Injector Configuration
+
 env:
   SN_HOST: '{{ SN_HOST }}'
   SN_PASSWORD: '{{ SN_PASSWORD }}'
