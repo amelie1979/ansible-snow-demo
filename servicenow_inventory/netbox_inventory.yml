@@ -1,0 +1,11 @@
+---
+plugin: netbox.netbox.nb_inventory
+validate_certs: false
+config_context: false
+group_by:
+ - device_roles
+ - platforms
+compose:
+ ansible_network_os: platform.slug
+query_filters:
+ - site: "MTL"

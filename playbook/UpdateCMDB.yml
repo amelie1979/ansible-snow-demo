@@ -3,10 +3,10 @@
   hosts: localhost
   gather_facts: false
   tasks:
-    - name: Simulate VM creation for RHUG Amelie-VM-01
+    - name: Create VM CI in CMDB
       ansible.builtin.set_fact:
         instance:
-          name: Amelie-VM-01
+          name: "{{ vm_name }}"
           id: vm1234567890
           public_ip_address: 10.1.1.1       
 
