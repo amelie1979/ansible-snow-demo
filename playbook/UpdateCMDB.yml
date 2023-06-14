@@ -8,7 +8,7 @@
         instance:
           name: "{{ vm_name }}"
           id: vm1234567890
-          public_ip_address: 10.1.1.1       
+          public_ip_address: "{{ ansible_host }}"      
 
     - name: Register the newly-created VM instance
       servicenow.itsm.configuration_item:
