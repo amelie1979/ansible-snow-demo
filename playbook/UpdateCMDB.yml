@@ -1,5 +1,5 @@
 ---
-- name: Demonstrate CMDB management
+- name: Update or Create CI in ServiceNow 
   hosts: localhost
   gather_facts: false
   tasks:
@@ -13,7 +13,11 @@
     - name: Register the newly-created VM instance
       servicenow.itsm.configuration_item:
         name: "{{ instance.name }}"
+        short_description: VM From Azure
         sys_class_name: cmdb_ci_vm_instance
+        assigned_to: ansible.user
+        environment: production
         ip_address: "{{ instance.public_ip_address }}"
         other:
           vm_inst_id: "{{ instance.id }}"
+      register: server              
