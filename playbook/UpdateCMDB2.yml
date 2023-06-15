@@ -7,7 +7,7 @@
       azure_rm_resource_info:
         resource_group: "{{ resource_group }}"
         provider: compute
-        resource_type: virtualMachine
+        resource_type: virtualMachines
         resource_name: "{{ vm_name }}"
       register: register_instance
 
