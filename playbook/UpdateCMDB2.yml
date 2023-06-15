@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: Get VM Ip
-      azure.azcollection.azure_rm_resource_info:
+      azure_rm_resource_info:
         resource_group: "{{ resource_group }}"
         provider: compute
         resource_type: virtualMachine
@@ -12,7 +12,7 @@
       register: register_instance
 
     - name: Get Network Interface ID
-      azure.azcollection.azure_rm_resource_info:
+      azure_rm_resource_info:
         url: "{{ register_instance.response[0].properties.networkProfile.networkInterfaces[0].id }}"
       register: register_nic
 
