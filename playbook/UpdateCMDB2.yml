@@ -25,7 +25,7 @@
         instance:
           name: "{{ vm_name }}"
           id: vm1234567890
-          public_ip_address: "{{ register_nic }}"      
+          public_ip_address: "{{ register_nic.response[0].properties.ipConfigurations[0].properties.privateIPAddress }}"      
 
     - name: Register the newly-created VM instance
       servicenow.itsm.configuration_item:
