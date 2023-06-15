@@ -21,17 +21,13 @@
         msg: "{{ register_nic.response[0].properties.ipConfigurations[0].properties.privateIPAddress }}"    # e.g. 10.0.0.4    
 
     - name: Create VM CI in CMDB
-      hosts: localhost
-      gather_facts: false
       ansible.builtin.set_fact:
         instance:
           name: "{{ vm_name }}"
           id: vm1234567890
-          public_ip_address: "{{ ansible_host }}"      
+          public_ip_address: "{{ register_nic }}"      
 
     - name: Register the newly-created VM instance
-      hosts: localhost
-      gather_facts: false    
       servicenow.itsm.configuration_item:
         name: "{{ instance.name }}"
         short_description: VM From Azure
