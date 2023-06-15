@@ -1,0 +1,44 @@
+---
+- name: Update or Create CI in ServiceNow 
+  hosts: locahost
+  gather_facts: false
+  tasks:
+    - name: Get VM Ip
+      azure.azcollection.azure_rm_resource_info:
+        resource_group: "{{ resource_group }}"
+        provider: compute
+        resource_type: virtualMachine
+        resource_name: "{{ vm_name }}"
+      register: register_instance
+
+    - name: Get Network Interface ID
+      azure.azcollection.azure_rm_resource_info:
+        url: "{{ register_instance.response[0].properties.networkProfile.networkInterfaces[0].id }}"
+      register: register_nic
+
+    - name: Debug Private IP address
+      ansible.builtin.debug:
+        msg: "{{ register_nic.response[0].properties.ipConfigurations[0].properties.privateIPAddress }}"    # e.g. 10.0.0.4    
+
+    - name: Create VM CI in CMDB
+      hosts: localhost
+      gather_facts: false
+      ansible.builtin.set_fact:
+        instance:
+          name: "{{ vm_name }}"
+          id: vm1234567890
+          public_ip_address: "{{ ansible_host }}"      
+
+    - name: Register the newly-created VM instance
+      hosts: localhost
+      gather_facts: false    
+      servicenow.itsm.configuration_item:
+        name: "{{ instance.name }}"
+        short_description: VM From Azure
+        sys_class_name: cmdb_ci_vm_instance
+        assigned_to: ansible.user
+        environment: production
+        ip_address: "{{ instance.public_ip_address }}"
+        other:
+          vm_inst_id: "{{ instance.id }}"
+      register: server              
